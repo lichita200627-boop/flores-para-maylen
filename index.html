@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flores amarillas para Maylen</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #fff9c4, #ffeb3b);
+      font-family: 'Segoe UI', cursive;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ffca28;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffb300;
+      transform: scale(1.1);
+    }
+
+    .mensaje {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4e342e;
+      display: none;
+    }
+
+    .flor {
+      position: absolute;
+      font-size: 2rem;
+      animation: caer 4s linear forwards;
+    }
+
+    @keyframes caer {
+      from { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌼 Para mi novia Maylen 🌼</h1>
+  <button onclick="mostrarFlores()">Aceptar flores 🌼</button>
+  <div class="mensaje" id="mensaje">💛 Te amo Maylen 💛</div>
+
+  <script>
+    function mostrarFlores() {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.style.display = "block";
+
+      for (let i = 0; i < 20; i++) {
+        let flor = document.createElement("div");
+        flor.classList.add("flor");
+        flor.textContent = "🌼";
+        flor.style.left = Math.random() * window.innerWidth + "px";
+        flor.style.top = "-50px";
+        flor.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(flor);
+
+        setTimeout(() => {
+          flor.remove();
+        }, 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
